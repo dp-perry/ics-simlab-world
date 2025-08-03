@@ -1,0 +1,25 @@
+body {
+  margin: 0;
+  overflow: hidden;
+  background: #111;
+}
+canvas {
+  display: block;
+}
+
+#overview-panel {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: #ffffffcc;
+  padding: 1rem;
+  border-radius: 8px;
+  font-family: sans-serif;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+#overview-panel h2 {
+  margin-top: 0;
+}
+#overview-panel button {
+  margin-top: 10px;
+}

@@ -3,10 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <title>ICS World View</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <canvas id="world"></canvas>
+  <div id="overview-panel">
+    <h2>Facility Overview</h2>
+    <p>Power: <span id="power-status">--</span></p>
+    <p>Conveyor: <span id="conveyor-status">--</span></p>
+    <p>Bottle Present: <span id="bottle-present-status">--</span></p>
+    <p>Filler: <span id="filler-status">--</span></p>
+    <p>Water Level: <span id="water-level-status">--</span></p>
+    <p>Bottles Filled: <span id="bottle-count-status">--</span></p>
+    <button id="toggle-power">Turn Facility On</button>
+  </div>
   <script src="js/matter.min.js"></script>
   <script src="js/components.js"></script>
   <script src="js/world.js"></script>

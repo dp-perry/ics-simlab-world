@@ -29,11 +29,26 @@ function spawnBottle() {
   bottles.push(bottle);
 }
 
+function updateOverview(data) {
+  document.getElementById('power-status').textContent = data.power ? 'ON' : 'OFF';
+  document.getElementById('conveyor-status').textContent = data.conveyor_on ? 'Moving' : 'Stopped';
+  document.getElementById('bottle-present-status').textContent = data.bottle_present ? 'Yes' : 'No';
+  document.getElementById('filler-status').textContent = data.filler_on ? 'Filling' : 'Idle';
+  document.getElementById('water-level-status').textContent = data.water_level ? 'Full' : 'Empty';
+  document.getElementById('bottle-count-status').textContent = data.bottle_count;
+
+  const btn = document.getElementById('toggle-power');
+  btn.textContent = data.power ? 'Turn Facility Off' : 'Turn Facility On';
+}
+
+// Run every time the application receives and update through the websocket
 function handleBackendUpdate(state) {
   const spacing = 180;
   const bottleInZone = 0;
   const sensor_border_left = 100 - 30;
   const sensor_border_right = 130;
+
+  updateOverview(state)
 
   // Conveyor motion
   if (state.conveyor_on) {
