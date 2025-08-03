@@ -13,6 +13,10 @@ function setupWebSocket(onUpdate) {
 }
 
 function sendSensorUpdate(register, value) {
-  const update = JSON.stringify({ register, value });
+  const update = JSON.stringify({
+    type: 'write',
+    register: register,
+    value: value
+  });
   socket.send(update);
 }
