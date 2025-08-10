@@ -1,4 +1,4 @@
-function createBottle(x = 30, y = 340) {
+function createBottle(x = 30, y = 345) {
   const thickness = 4;
   const width = 30;
   const height = 50;
