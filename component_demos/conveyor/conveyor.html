@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Bottle component</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <style>
+      /* Some demo specific styling */
+      .title{
+        position: absolute;
+        top: 16px;
+        left: 0;
+        width: 800px;
+        padding: 8px 0;
+        text-align: center;
+        background-color: rgba(0,0,0,0.2);
+      }
+      #bottles {
+          position: absolute;
+          top: 60px;
+          left: 650px;
+          width: 150px;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="world"></canvas>
+    <div class="title">
+      Conveyor belt demo
+    </div>
+    <div id="bottles"></div>
+    <button id="toggleConveyor">Toggle Conveyor</button>
+    <script src="../../js/matter.js"></script>
+    <script src="conveyor.js"></script>
+  </body>
+</html>
