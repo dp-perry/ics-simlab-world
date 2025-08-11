@@ -94,7 +94,7 @@ function spawnBottle() {
 
 function spawnWater(x, y) {
   const drop = Bodies.circle(x, y, 2, {
-    frictionAir: 0.02,
+    frictionAir: 0.05,
     friction: 0.0001,
     restitution: 0.1,
     mass: 0,
@@ -113,7 +113,7 @@ function spawnWater(x, y) {
 // [0, 0] is top left
 function initWorld() {
   engine.enableSleeping = false;
-  world.gravity.y = 1;
+  world.gravity.y = 0;
 
   const render = Render.create({
     canvas: document.getElementById('world'),
@@ -165,7 +165,19 @@ function initWorld() {
       let x = mouseX;
       let y = mouseY;
       spawnWater(x, y);
+      spawnWater(x + 2, y);
+      spawnWater(x - 2, y);
     }
+
+    Matter.Composite.allBodies(engine.world).forEach(body => {
+        // Check if the body has the desired label
+        if (body.label === 'water') {
+            // Apply the force to the body
+            // The second argument is the position in world-space where the force is applied.
+            // Passing body.position applies the force at the center of mass, avoiding angular torque.
+            Matter.Body.applyForce(body, body.position, {x: 0, y: 0.00001});
+        }
+    });
 
     // Despawn bottles
     bottles = bottles.filter(b => {
